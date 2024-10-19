@@ -1,0 +1,854 @@
+/* Global Styles */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Preloader Container */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* White background with slight opacity */
+    z-index: 9999; /* Ensure the preloader is on top of everything */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 1; /* Ensure the preloader is visible */
+    visibility: visible; /* Ensure visibility */
+}
+
+/* Spinner Animation */
+.spinner {
+    border: 0.375rem solid #f3f3f3; /* Light grey border */
+    border-top: 0.375rem solid #3498db; /* Blue border for top */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite; /* Animation */
+}
+
+/* Loading text */
+#preloader p {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+/* Spinner Animation Keyframes */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide Preloader when page is fully loaded */
+body.loaded #preloader {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s 0.5s; /* Smooth fade-out */
+}
+
+/* Common Utilities */
+.no-shadow {
+    box-shadow: none !important;
+}
+
+.text-white {
+    color: #fff !important;
+}
+
+.bg-gradient-primary {
+    background-image: linear-gradient(to right, #007BFF, #6db9ef, #7ce08a);
+}
+
+/* Navbar Styles */
+.menu-bar {
+    background-image: linear-gradient(to right, #007BFF, #6db9ef, #7ce08a);
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-link {
+    font-size: 1rem;
+    color: #fff !important;
+    margin: 0.25rem;
+}
+
+.navbar-toggler {
+    padding-right: 0;
+    border: none;
+    outline: none;
+}
+
+/* Banner Section */
+.banner {
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/web-dev.jpg) center/cover no-repeat;
+    color: #fff;
+}
+
+.banner h1 {
+    padding-top: 10rem;
+    font-size: 3rem;
+    letter-spacing: 0.375rem;
+    font-weight: 600;
+    text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Search Job Section */
+.search-job {
+    padding: 30px 0;
+    margin: -50px 6% 50px;
+    background-image: linear-gradient(to right, #007BFF, #6db9ef, #7ce08a);
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.form-control {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 16px;
+    min-width: 150px;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+/* Top Recruiters */
+#recruiters {
+    padding: 3rem 0;
+}
+
+#recruiters h2 {
+    text-align: center;
+    padding-bottom: 2.5rem;
+    position: relative;
+}
+
+h2::before {
+    content: '';
+    background: linear-gradient(to right, #007BFF, #6db9ef, #7ce08a);
+    width: 3.125rem;
+    height: 1.875rem;
+    position: absolute;
+    z-index: -1;
+    top: -1.875rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-left-radius: 4.375rem;
+    border-bottom-left-radius: 5.625rem;
+}
+
+#recruiters img {
+    max-width: 100px;
+    margin: 0.625rem 1.25rem;
+    transition: transform 0.3s; /* Animation effect on hover */
+}
+
+/* Add a scaling effect on hover */
+#recruiters img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Job Updates Section */
+#jobs {
+    background-color: #f8f8fa;
+    padding: 3rem 0;
+}
+
+.company-details {
+    box-shadow: 0 2px 7px rgba(110, 130, 208, 0.18);
+    border-radius: 0.3125rem;
+    margin-bottom: 1.25rem;
+}
+
+.job-update {
+    background: #fff;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.3125rem;
+}
+
+.job-update .fa {
+    margin-right: 0.625rem;
+    color: #77d1b1;
+}
+
+.job-update small {
+    background: #efefef;
+    padding: 0.0625rem 0.3125rem;
+    margin: 0 0.3125rem;
+}
+
+.job-update p {
+    margin-bottom: 0;
+}
+
+.job-update a {
+    text-decoration: none;
+    color: #8a95ac;
+    float: right;
+}
+
+/* Apply Button */
+.apply-btn {
+    height: 2.5rem;
+    background-image: linear-gradient(to right, #007BFF, #6db9ef, #7ce08a);
+    padding: 0.4375rem;
+    border-bottom-left-radius: 0.3125rem;
+    border-bottom-right-radius: 0.3125rem;
+}
+
+.apply-btn .btn-primary {
+    padding: 0 1.875rem;
+    border-radius: 0;
+    background: transparent;
+    border: 1px solid #fff;
+    box-shadow: none !important;
+}
+
+/* Pagination */
+.page-link li {
+    height: 1.5625rem;
+    width: 1.5625rem;
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.page-link li:hover,
+.active {
+    color: #fff;
+    background-image: linear-gradient(to right, #007BFF, #6db9ef, #7ce08a);
+}
+
+/* Arrow Colors */
+.left-arrow {
+    color: #999;
+}
+
+.right-arrow {
+    color: #29b929;
+}
+
+/* Site Stats */
+#site-stats {
+    padding: 6.25rem 0; /* Padding for the stats section */
+    opacity: 0; /* Initial opacity for animation */
+    transform: translateY(20px); /* Initial position for animation */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition effects for opacity and position */
+}
+
+/* Active class to trigger animation */
+#site-stats.visible {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+}
+
+#site-stats h3 {
+    margin-bottom: 1.875rem; /* Margin for heading */
+}
+
+.stats-box {
+    padding: 1.875rem; /* Padding inside each stats box */
+    border-radius: 0.625rem; /* Rounded corners */
+    margin: 1.25rem 0; /* Margin between boxes */
+    box-shadow: 0 2px 40px rgba(110, 130, 208, 0.18); /* Shadow for depth */
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+/* Hover Effect for Stats Boxes */
+.stats-box:hover {
+    transform: scale(1.05); /* Slightly enlarge the box on hover */
+    transition: transform 0.3s ease; /* Smooth transition for the scaling effect */
+    box-shadow: 0 4px 60px rgba(110, 130, 208, 0.3); /* Increase shadow for depth on hover */
+}
+
+.stats-box .fa {
+    font-size: 1.875rem; /* Font size for icons */
+    margin-right: 0.625rem; /* Space between icon and text */
+}
+
+/* Key Features */
+#list-items {
+    position: relative; /* Positioning for list items */
+    overflow: hidden; /* Hide overflow */
+    padding: 20px; /* Padding around list */
+}
+
+h2 {
+    margin-bottom: 40px; /* Margin below heading */
+    font-size: 2.5rem; /* Font size for headings */
+    color: #0056b3; /* Heading color */
+}
+
+.list-box {
+    opacity: 0; /* Hidden initially */
+    position: absolute; /* Absolute positioning */
+    transition: opacity 6s ease-in-out; /* Transition for opacity */
+}
+
+.active {
+    opacity: 1; /* Fully visible */
+    position: relative; /* Reset position */
+}
+
+.list-box ul {
+    list-style-type: none; /* No bullets for list */
+    padding: 0; /* Remove padding */
+}
+
+.list-box li {
+    font-size: 1.2rem; /* Font size for list items */
+    color: #333; /* Text color */
+}
+
+/* Media Queries */
+@media (max-width: 991.98px) {
+    .list-box li {
+        font-size: 1.1rem; /* Smaller font size for smaller screens */
+    }
+
+    #list-items {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+}
+
+@media (max-width: 767.98px) {
+    .list-box li {
+        font-size: 1rem; /* Smallest font size */
+    }
+
+    #list-items {
+        padding: 10px; /* Less padding on smallest screens */
+    }
+}
+
+/* Why You Should Join Us */
+.reasons-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.reasons-section h2 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #0056b3;
+}
+
+.card {
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.card-text {
+    color: #666;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.card:hover .card-title {
+    color: #fff;
+}
+
+.card:hover .card-text {
+    color: #e0e0e0;
+}
+
+@media (max-width: 991.98px) {
+    .reasons-section h2 {
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+    }
+
+    .card-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .reasons-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .col-md-4 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .reasons-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+    }
+
+    .card-text {
+        font-size: 0.9rem;
+    }
+
+    .card {
+        padding: 10px;
+    }
+}
+
+/* Steps Section */
+.steps-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+
+.steps-section h2 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: #0056b3;
+}
+
+.steps-section .step {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.steps-section .step:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.steps-section .step h5 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.steps-section .step p {
+    font-size: 1rem;
+    color: #666;
+}
+
+@media (max-width: 991.98px) {
+    .steps-section h2 {
+        font-size: 2rem;
+    }
+
+    .steps-section h5 {
+        font-size: 1.3rem;
+    }
+
+    .steps-section p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .steps-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .steps-section h5 {
+        font-size: 1.2rem;
+    }
+
+    .steps-section p {
+        font-size: 0.95rem;
+    }
+
+    .steps-section .col-md-6 {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .steps-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .steps-section h5 {
+        font-size: 1.1rem;
+    }
+
+    .steps-section p {
+        font-size: 0.9rem;
+    }
+
+    .steps-section .col-md-6 {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Add a light grey background to sections for contrast */
+hr {
+    background-color: #ccc;
+}
+
+/* ================================
+   APP BANNER SECTION
+   ================================ */
+
+#app-banner {
+    background-image: linear-gradient(to right, #6db9ef, #7ce08a);
+    padding: 3.125rem 0; /* Add padding for spacing */
+    text-align: center;
+}
+
+/* Banner Heading Styling */
+#app-banner h1 {
+    margin-top: 1.25rem;
+    color: #fff; /* White text for contrast */
+}
+
+/* Banner Image Styling */
+#app-banner img {
+    width: 9.375rem; /* Set image width */
+    margin: 3.125rem 0; /* Add margin for spacing */
+}
+
+/* ================================
+   HOW TO JOIN US - STEPS SECTION
+   ================================ */
+
+/* Container and general styles */
+.steps-section {
+    padding: 60px 0;
+    background-color: #f2f2f2; /* Light grey background */
+}
+
+.steps-section h2 {
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #0056b3; /* Dark blue for headings */
+}
+
+/* Step Title Styling */
+.steps-section h5 {
+    font-size: 1.5rem;
+    color: #333; /* Dark grey for step headings */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Step Description Paragraph Styling */
+.steps-section p {
+    color: #666; /* Medium grey for paragraph text */
+    transition: color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Individual Step Styling */
+.steps-section .col-md-6 {
+    padding: 20px;
+    background-color: #fff; /* White background for steps */
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Light border around each step */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Hover effect for individual steps */
+.steps-section .col-md-6:hover {
+    background-color: #3498db; /* Change background color to blue on hover */
+}
+
+/* Hover effect on heading */
+.steps-section .col-md-6:hover h5 {
+    color: #fff; /* Change heading color to white on hover */
+}
+
+/* Hover effect on paragraph */
+.steps-section .col-md-6:hover p {
+    color: #e0e0e0; /* Change paragraph color to light grey on hover */
+}
+
+/* Responsive Adjustments for Steps Section */
+
+/* Tablets and small screens (less than 992px) */
+@media (max-width: 991.98px) {
+    .steps-section h2 {
+        font-size: 2rem; /* Reduce heading size */
+    }
+    .steps-section h5 {
+        font-size: 1.3rem; /* Reduce step title size */
+    }
+    .steps-section p {
+        font-size: 1rem; /* Adjust paragraph font size */
+    }
+}
+
+/* Smartphones and small devices (less than 768px) */
+@media (max-width: 767.98px) {
+    .steps-section h2 {
+        font-size: 1.8rem; /* Reduce heading size further */
+    }
+
+    .row {
+        display: flex;
+        flex-direction: column; /* Stack steps vertically */
+    }
+
+    .col-md-6 {
+        width: 100%; /* Make steps full width */
+        margin-bottom: 20px; /* Add spacing between steps */
+    }
+
+    .steps-section h5 {
+        font-size: 1.2rem; /* Further reduce step title size */
+    }
+
+    .steps-section p {
+        font-size: 0.95rem; /* Further adjust paragraph font size */
+    }
+}
+
+/* Extra small devices (less than 576px) */
+@media (max-width: 575.98px) {
+    .steps-section h2 {
+        font-size: 1.5rem; /* Reduce heading size on extra small screens */
+    }
+
+    .steps-section h5 {
+        font-size: 1.1rem; /* Further reduce step title size */
+    }
+
+    .steps-section p {
+        font-size: 0.9rem; /* Reduce paragraph font size */
+    }
+
+    .steps-section .col-md-6 {
+        padding: 10px; /* Reduce padding on smaller devices */
+    }
+}
+
+/* Extremely small devices (less than 200px) */
+@media (max-width: 199.98px) {
+    .steps-section h2 {
+        font-size: 1.2rem; /* Further reduce heading size */
+    }
+
+    .steps-section h5 {
+        font-size: 0.9rem; /* Reduce step title size */
+    }
+
+    .steps-section p {
+        font-size: 0.8rem; /* Further adjust paragraph font size */
+    }
+
+    .steps-section .col-md-6 {
+        padding: 5px; /* Minimize padding on extremely small devices */
+    }
+}
+
+/* ================================
+   CONTACT FORM SECTION
+   ================================ */
+
+/* Form container styling */
+.formbody {
+    background-color: #f7f9fc; /* Light blue background */
+    padding: 10px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin-top: 2rem;
+    background-color: white; /* White background for form */
+    padding: 2rem;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    animation: fadeIn 1s ease-in-out; /* Animation for form appearance */
+}
+
+/* Form heading */
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #0056b3; /* Dark blue heading */
+}
+
+/* Form input focus state */
+.form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 86, 179, 0.5); /* Blue shadow on focus */
+}
+
+/* Submit button */
+.btn-primary {
+    background-color: #0056b3;
+    border: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth button transitions */
+}
+
+.btn-primary:hover {
+    background-color: #004494; /* Darker blue on hover */
+    box-shadow: 0 0 10px rgba(0, 86, 179, 0.5); /* Blue shadow on hover */
+}
+
+/* Error and success messages */
+.error-message,
+.success-message {
+    font-size: 0.9rem;
+    display: none; /* Hidden by default */
+}
+
+.error-message {
+    color: red;
+}
+
+.success-message {
+    color: green;
+}
+
+/* Disabled submit button styles */
+.submit-disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+}
+
+/* Display error message when hover over disabled button */
+.submit-disabled:hover:before {
+    content: attr(data-error-message); /* Show error message */
+    color: red;
+    font-size: 0.9rem;
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+}
+
+/* Success message styling */
+#successMessage {
+    color: green;
+    font-size: 1rem;
+    display: none;
+    text-align: center;
+}
+
+/* ================================
+   FOOTER SECTION
+   ================================ */
+
+#footer {
+    background: #f8f9fd;
+    padding: 1.25rem 0.625rem 0.5rem;
+    text-align: center;
+}
+
+.footer-image {
+    margin: 1.875rem 0; /* Spacing around footer image */
+}
+
+#footer p {
+    color: #333; /* Dark grey text */
+}
+
+#footer a img {
+    width: 3.125rem; /* Set width of footer images */
+}
+
+.fa-heart {
+    color: #ff0000; /* Red heart for icon */
+}
+
+/* ================================
+   ACCESSIBILITY ENHANCEMENTS
+   ================================ */
+
+/* Screen reader-only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* Hide visually but accessible for screen readers */
+    border: 0;
+}
+
+/* ================================
+   ADDITIONAL MEDIA QUERIES
+   ================================ */
+
+/* Adjust form input spacing on small screens */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+        gap: 15px; /* Increase gap between inputs */
+    }
+}
+
+/* Fade-in animation for form */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
